@@ -10,6 +10,7 @@ import VectorSource from 'ol/source/Vector.js';
 import { Point } from 'ol/geom.js';
 import { Style, RegularShape, Fill, Stroke, Text, Icon, Circle as CircleStyle } from 'ol/style.js';
 import Feature from 'ol/Feature.js';
+import icon from './icon.png';
 
 const viewSettings = {
     extent: {
@@ -33,9 +34,9 @@ const viewSettings = {
     }
     
 }
-const icon = `<svg width='51' height='29' version='1.1' xmlns='http://www.w3.org/2000/svg'><rect x='0' y='5' width='24' height='24' stroke='#000' fill='#e8f442' stroke-width='1' /><line x1='7' y1='8' x2='7' y2='26' stroke='#000' stroke-width='3' /><line x1='17' y1='8' x2='17' y2='26' stroke='#000' stroke-width='3' /><line x1='7' y1='17' x2='18' y2='17' stroke='#000' stroke-width='3' /></svg>`
+
 const iconImage = new Icon({
-    src: `data:image/svg+xml;charset=utf-8;base64,${btoa(icon)}`,
+    src: icon,
     imgSize: [32, 32],
     scale: 1,
     anchor: [12, 24],
@@ -76,7 +77,7 @@ new Map({
 });
 
 // set img src as same svg URI
-document.getElementById('img').setAttribute('src', `data:image/svg+xml;charset=utf-8;base64,${btoa(icon)}`)
+document.getElementById('img').setAttribute('src', icon);
 
 const addPoint = (evt, reference) => {
     const iconPoint = new Point(evt.coordinate);
@@ -117,5 +118,5 @@ const addPoint = (evt, reference) => {
 
 // render 100 points on map
 for (let i = 0;i < 100; i++) {
-    addPoint({ coordinate: [ 308188.48 - (i * 100), 608846.16 - (i * 100) ]}, i);
+    addPoint({ coordinate: [ 308188.48 + (i * 100), 608846.16 + (i * 100) ]}, i);
 }
