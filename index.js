@@ -43,7 +43,6 @@ const iconImage = new Icon({
     anchorXUnits: 'pixels',
     anchorYUnits: 'pixels',
     rotation: 0,
-    size: [32, 32],
     opacity: 1
 });
 
